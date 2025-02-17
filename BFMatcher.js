@@ -8,26 +8,23 @@ const skills = [
   'guild-for-the-guild',
   'guild-hard-hitter',
   'guild-undeterred',
-  'house',
-  'fame',
+  'fame'
 ]
 const stackingConsumables = [
   'mp-red',
   'mp-green',
   'mp-blue',
-  'candied-apple',
   'legions-might',
   'guild-boss-slayers',
   'guild-for-the-guild',
   'guild-hard-hitter',
   'guild-undeterred',
   'blessing-of-the-guild',
-  'ursus',
-  'mvp',
+  'ursus'
 ]
-const eventBuffs = ['vip']
-const alchemy = ['exceptional-boost', 'legendary-hero']
-const smithing = ['weapon-tempering']
+const eventBuffs = ['vip', 'mvp', 'candied-apple', 'house']
+const alchemy = ['exceptional-boost', 'legendary-hero', 'weapon-tempering']
+//const smithing = ['weapon-tempering']
 const advStatPotions = [
   'adv-stat-pill',
   'adv-stat-pill2',
@@ -70,7 +67,7 @@ function markBuffFound (buff) {
 
 function checkCategories () {
   if (skills.every(buff => found.includes(buff))) {
-    document.getElementById('skills').classList.add('categoryComplete')
+    document.getElementById('common-skills').classList.add('categoryComplete')
   }
   if (stackingConsumables.every(buff => found.includes(buff))) {
     document.getElementById('stacking-consumables').classList.add('categoryComplete')
@@ -81,9 +78,9 @@ function checkCategories () {
   if (alchemy.some(buff => found.includes(buff))) {
     document.getElementById('alchemy').classList.add('categoryComplete')
   }
-  if (smithing.every(buff => found.includes(buff))) {
-    document.getElementById('smithing').classList.add('categoryComplete')
-  }
+//  if (smithing.every(buff => found.includes(buff))) {
+//    document.getElementById('smithing').classList.add('categoryComplete')
+//  }
   if (advStatPotions.some(buff => found.includes(buff))) {
     document.getElementById('adv-stat-potions').classList.add('categoryComplete')
   }
