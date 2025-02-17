@@ -113,7 +113,7 @@ function checkForBuff (buff, descriptors2) {
   // console.log('matches', matches.size())
   
   let good_matches = new cv.DMatchVector();
-  let knnDistance_option = 0.7;
+  let knnDistance_option = 0.5;
   let counter = 0;
   for (let i = 0; i < matches.size(); ++i) {
       let match = matches.get(i);
