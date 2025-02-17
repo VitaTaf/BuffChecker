@@ -62,44 +62,77 @@ function markBuffFound (buff) {
   if (!buff.display) return
   const buffImageEl = document.getElementById(buff.display)
   const parent = buffImageEl.parentNode
-  const imgContainer = document.createElement('div')
-  imgContainer.classList.add('imgContainer')
   const checkmark = document.createElement('div')
   checkmark.classList.add('center')
   checkmark.innerText = '✔️'
-  parent.replaceChild(imgContainer, buffImageEl)
+
+  let imgContainer
+  if (parent.className == "imgContainer") {
+    imgContainer = parent
+  } else {
+    imgContainer = document.createElement('div')
+    imgContainer.classList.add('imgContainer')
+    parent.replaceChild(imgContainer, buffImageEl)
+  }
   imgContainer.appendChild(buffImageEl)
   imgContainer.appendChild(checkmark)
   found.push(buff.display)
 }
 
+function unmarkBuffFound (buff) {
+  if (!buff.display) return
+  const buffImageEl = document.getElementById(buff.display)
+  let parent = buffImageEl.parentNode
+  if (parent.className == "imgContainer") {
+    parent.parentNode.replaceChild(buffImageEl, parent);
+    parent.remove()
+  }
+}
+
+
 function checkCategories () {
   if (skills.every(buff => found.includes(buff))) {
     document.getElementById('common-skills').classList.add('categoryComplete')
+  } else {
+    document.getElementById('common-skills').classList.remove('categoryComplete')
   }
   if (toggles.some(buff => found.includes(buff))) {
     document.getElementById('toggles').classList.add('categoryComplete')
+  } else {
+    document.getElementById('toggles').classList.remove('categoryComplete')
   }
   if (stackingConsumables.every(buff => found.includes(buff))) {
     document.getElementById('stacking-consumables').classList.add('categoryComplete')
+  } else {
+    document.getElementById('stacking-consumables').classList.remove('categoryComplete')
   }
   if (eventBuffs.every(buff => found.includes(buff))) {
     document.getElementById('event-buffs').classList.add('categoryComplete')
+  } else {
+    document.getElementById('event-buffs').classList.remove('categoryComplete')
   }
   if (alchemy.some(buff => found.includes(buff))) {
     document.getElementById('alchemy').classList.add('categoryComplete')
+  } else {
+    document.getElementById('alchemy').classList.remove('categoryComplete')
   }
 //  if (smithing.every(buff => found.includes(buff))) {
 //    document.getElementById('smithing').classList.add('categoryComplete')
 //  }
   if (advStatPotions.some(buff => found.includes(buff))) {
     document.getElementById('adv-stat-potions').classList.add('categoryComplete')
+  } else {
+    document.getElementById('adv-stat-potions').classList.remove('categoryComplete')
   }
   if (nonstackingConsumables1.some(buff => found.includes(buff))) {
     document.getElementById('nonstacking-consumables1').classList.add('categoryComplete')
+  } else {
+    document.getElementById('nonstacking-consumables1').classList.remove('categoryComplete')
   }
   if (nonstackingConsumables2.some(buff => found.includes(buff))) {
     document.getElementById('nonstacking-consumables2').classList.add('categoryComplete')
+  } else {
+    document.getElementById('nonstacking-consumables2').classList.remove('categoryComplete')
   }
 }
 
@@ -138,6 +171,8 @@ function checkForBuff (buff, descriptors2) {
   
   if (counter > 1) {
     markBuffFound(buff)
+  } else {
+    unmarkBuffFound(buff)
   }
 }
 
@@ -223,6 +258,7 @@ function checkBuffs () {
 imgElement.onload = checkBuffs
 
 document.onpaste = function (event) {
+  found = []
     var items = (event.clipboardData || event.originalEvent.clipboardData).items;
   // console.log(JSON.stringify(items)); // will give you the mime types
   for (index in items) {
