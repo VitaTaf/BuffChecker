@@ -10,6 +10,12 @@ const skills = [
   'guild-undeterred',
   'fame'
 ]
+const toggles = [
+  'fox-spirits',
+  'ravenous-bat',
+  'guided-arrow',
+  'mana-overload'
+]
 const stackingConsumables = [
   'mp-red',
   'mp-green',
@@ -68,6 +74,9 @@ function markBuffFound (buff) {
 function checkCategories () {
   if (skills.every(buff => found.includes(buff))) {
     document.getElementById('common-skills').classList.add('categoryComplete')
+  }
+  if (toggles.some(buff => found.includes(buff))) {
+    document.getElementById('toggles').classList.add('categoryComplete')
   }
   if (stackingConsumables.every(buff => found.includes(buff))) {
     document.getElementById('stacking-consumables').classList.add('categoryComplete')
@@ -170,6 +179,10 @@ let buffList = [
   { display: 'energizer-drink', algo: 'energizer-drink-white-bg' },
   { display: 'boss-rush', algo: 'boss-rush-white-bg' },
   { display: 'red-star', algo: 'red-star-white-bg' },
+  { display: 'fox-spirits', algo: 'fox-spirits' },
+  { display: 'ravenous-bat', algo: 'ravenous-bat' },
+  { display: 'guided-arrow', algo: 'guided-arrow' },
+  { display: 'mana-overload', algo: 'mana-overload' },
 ];
 
 function checkBuffs () {
