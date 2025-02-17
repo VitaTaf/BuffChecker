@@ -1,7 +1,8 @@
 body {
-  background-color: lightsteelblue;
+  background-color: #2f2f2f;
   padding: 20px;
   font-family: Arial, Helvetica, sans-serif;
+  color: lightsteelblue;
 }
 
 h1 {
@@ -41,19 +42,21 @@ p {
 .groupTitle {
   display: table;
   margin: -25px auto 10px 0;
-  background-color: lightsteelblue;
+  background-color: #2f2f2f;
   font-size: 33px;
   font-weight: bold;
   padding: 0 15px;
+  color: lightsteelblue;
 }
 
 .subgroupTitle {
   display: table;
   margin: -10px auto 10px 0;
-  background-color: lightsteelblue;
+  background-color: #2f2f2f;
   font-size: 18px;
   font-weight: bold;
   padding: 0 5px;
+  color: lightsteelblue;
 }
 
 .imgContainer {
@@ -71,10 +74,11 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 20px;
+  color: lightsteelblue;
 }
 
 .categoryComplete {
-  background-color: darkseagreen;
+  background-color: #4f4f4f;
 }
 
 .hidden {
