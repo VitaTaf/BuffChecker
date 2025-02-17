@@ -26,7 +26,9 @@ const stackingConsumables = [
   'guild-hard-hitter',
   'guild-undeterred',
   'blessing-of-the-guild',
-  'ursus'
+  'ursus',
+  'sayram',
+  'aurelia'
 ]
 const eventBuffs = ['vip', 'mvp', 'candied-apple', 'house']
 const alchemy = ['exceptional-boost', 'legendary-hero', 'weapon-tempering']
