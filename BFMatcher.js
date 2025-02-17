@@ -151,6 +151,8 @@ let buffList = [
   { display: 'blessing-of-the-guild', algo: 'blessing-guild-full' },
   { display: 'ursus', algo: 'ursus-full' },
   { display: 'mvp', algo: 'mvp' },
+  { display: 'sayram', algo: 'sayram' },
+  { display: 'aurelia', algo: 'aurelia' },
   { display: 'vip', algo: 'vip' },
   { display: 'exceptional-boost', algo: 'exceptional-boost-white-bg' },
   { display: 'legendary-hero', algo: 'legendary-hero-white-bg' },
